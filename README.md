@@ -21,9 +21,6 @@ The task is to implement the REST service that exposes the /analytics endpoint, 
     - expects a JSON array containing a series of user events without the id and the date properties as the body payload. Each object in the JSON array must be validated before saving based on the below-mentioned criteria.
     - each list of the events can contain duplicate entries for a user and the event type. Every event object in the list should fulfil the following criteria in order to be saved into the system to avoid duplicates:
     - a user can have only one 'click' event type in a 3-second window. All other 'click' events for the same user in the window should be discarded.
-    - a user can have only one 'pageView' event type in a 5-second window. All other 'pageView' events for the same user in the window should be discarded.
-    - adds the given event object to the collection of events and assigns a unique integer id to it. The first created event must have id as 1, the second one has id as 2, and so on.
-    - adds the date property equal to the current system date to each saved object.
     - the response code is 201, and the response body is a JSON containing the total number of events that were successfully ingested. Sample is :
     ```text
     {"ingested" : 4}
